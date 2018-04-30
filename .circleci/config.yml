@@ -76,7 +76,7 @@ jobs:
             gcloud auth activate-service-account $DEV_GAE_DEPLOY_USER --key-file /tmp/secret.json
             gcloud --quiet config set project $DEV_GCP_PROJECT
 
-            gcloud --quiet app deploy app.yaml --version=ima2
+            gcloud --quiet app deploy app.yaml --version=ima3
           no_output_timeout: 20m
 
 workflows:
