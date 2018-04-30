@@ -59,7 +59,7 @@ jobs:
       #- store_artifacts:
           #path: test-reports
           #destination: test-reports
-  
+
   deploy:
     working_directory: ~/repo
     docker:
@@ -78,3 +78,10 @@ jobs:
 
             gcloud --quiet app deploy app.yaml --version=web2
           no_output_timeout: 20m
+
+workflows:
+  version: 2
+  BunldAndDeploy:
+    jobs:
+      - build
+      - deploy
