@@ -73,8 +73,7 @@ jobs:
           command: |
             #Authentication
             echo $DEV_GAE_DEPLOY_USER_KEY > /tmp/secret.json
-            gcloud auth activate-service-account
-            $DEV_GAE_DEPLOY_USER --key-file /tmp/secret.json
+            gcloud auth activate-service-account $DEV_GAE_DEPLOY_USER --key-file /tmp/secret.json
 
             gcloud --quiet app deploy app.yaml --version=web2
           no_output_timeout: 20m
