@@ -72,14 +72,14 @@ jobs:
           name: Copy Credentials
           
           command: |
-            echo $DEV_CONFIG > test.conf
+            echo -e $DEV_CONFIG > test.conf
 
       - run:
           name: Deploy to Google App Engine
           branch: master
           command: |
             #Authentication
-            echo -e $DEV_GAE_DEPLOY_USER_KEY > /tmp/secret.json
+            echo $DEV_GAE_DEPLOY_USER_KEY > /tmp/secret.json
             gcloud auth activate-service-account $DEV_GAE_DEPLOY_USER --key-file /tmp/secret.json
             gcloud --quiet config set project $DEV_GCP_PROJECT
 
