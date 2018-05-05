@@ -69,6 +69,10 @@ jobs:
       - checkout
 
       - run:
+          name: Copy Credentials
+            echo $DEV_CONFIG > test.config
+
+      - run:
           name: Deploy to Google App Engine
           command: |
             #Authentication
