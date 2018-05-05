@@ -1,4 +1,4 @@
 # TestRep
 Test
-ThisIsTesta
-BranchTesta
+ThisIsTest
+BranchTest
