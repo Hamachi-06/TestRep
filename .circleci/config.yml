@@ -9,6 +9,7 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1
+      - timezone: Asia/Tokyo
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -70,14 +71,16 @@ jobs:
 
       - run:
           name: Copy Credentials
+          
           command: |
-            echo $DEV_CONFIG > test.config
+            echo $DEV_CONFIG > test.conf
 
       - run:
           name: Deploy to Google App Engine
+          branch: master
           command: |
             #Authentication
-            echo $DEV_GAE_DEPLOY_USER_KEY > /tmp/secret.json
+            echo -e $DEV_GAE_DEPLOY_USER_KEY > /tmp/secret.json
             gcloud auth activate-service-account $DEV_GAE_DEPLOY_USER --key-file /tmp/secret.json
             gcloud --quiet config set project $DEV_GCP_PROJECT
 
