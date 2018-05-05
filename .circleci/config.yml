@@ -70,6 +70,7 @@ jobs:
 
       - run:
           name: Copy Credentials
+          command: |
             echo $DEV_CONFIG > test.config
 
       - run:
