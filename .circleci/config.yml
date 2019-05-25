@@ -14,4 +14,4 @@ jobs:
       - run:
           name: Deploy to Google App Engine
           command: |
-            gcloud --quiet app deploy app.yaml --version=test --no-promote
+            gcloud --quiet app deploy app.yaml --version=test
